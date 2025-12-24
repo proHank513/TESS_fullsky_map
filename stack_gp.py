@@ -148,7 +148,7 @@ def process_bin(args):
     print(f"Saved {bin_label}")
     return bin_label
 
-# Step 1: generate task list
+# generate task list
 tasks = []
 for z_min in z_bins:
     z_max = z_min + 0.05
@@ -156,7 +156,7 @@ for z_min in z_bins:
         m_max = m_min + 0.5
         tasks.append((z_min, z_max, m_min, m_max))
 
-# Step 2: run in parallel
+# run in parallel
 if __name__ == '__main__':
     with Pool(processes=n_cpus) as pool:
         pool.map(process_bin, tasks)
