@@ -135,17 +135,17 @@ def process_bin(args):
     glat_bin = r_select_glat[mask]
 
     if len(glon_bin) < low_limit:
-        print(f"❌ Skipped {bin_label} — {len(glon_bin)} galaxies.")
+        print(f"Skipped {bin_label} — {len(glon_bin)} galaxies.")
         return None
 
     galaxy_coords = np.array(list(zip(glon_bin, glat_bin)))
-    print(f"📦 Stacking {len(galaxy_coords)} galaxies in bin {bin_label}...")
+    print(f"Stacking {len(galaxy_coords)} galaxies in bin {bin_label}...")
 
     sample_3d_array = stack_galaxies_3d_array(galaxy_coords, tess_hp4096)
 
     output_file = os.path.join(output_dir, f'stacked_gp_{bin_label}_mask.npz')
     np.savez_compressed(output_file, sample_3d_array=sample_3d_array)
-    print(f"✅ Saved {bin_label}")
+    print(f"Saved {bin_label}")
     return bin_label
 
 # Step 1: generate task list
@@ -161,4 +161,4 @@ if __name__ == '__main__':
     with Pool(processes=n_cpus) as pool:
         pool.map(process_bin, tasks)
 
-print("🎉 All bins processed!")
+print("All bins processed!")
