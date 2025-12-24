@@ -18,7 +18,7 @@ To efficiently remove zody, I applied a high-pass filter (smoothing) to the star
 This script aligns Gaia star catalogs with the TESS HEALPix map and performs the masking process. It is called and executed within "full_sky.py"
 
 
-## Script -Full_sky
+## Script- Full_sky
 This script generates several .npz files for each TESS sector with HealPix ID, counts(weight), and value of the pixel. Since TESS observing strategy leads to large part of overlapping, so the weighted average is necessary to be done.
 I altered Ehthan's code mainly between line 1595-1663, adding star masking and weighting information to later conbine together by weight(not included in this repo).
 
